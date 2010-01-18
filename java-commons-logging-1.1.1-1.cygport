@@ -1,0 +1,14 @@
+JAVA_CLASSPATH="servlet-api.jar"
+inherit ant
+
+DESCRIPTION="Bridge for several Java logging APIs"
+HOMEPAGE="http://commons.apache.org/logging/"
+SRC_URI="mirror://apache/${ORIG_PN//-//}/source/${ORIG_PN}-${PV}-src.tar.gz"
+SRC_DIR="${ORIG_PN}-${PV}-src"
+
+ANT_BUILD_ARGS="
+	-Dlog4j12.jar=${JAVA_DIR}/log4j.jar
+	-Djunit.jar=${JAVA_DIR}/junit.jar
+"
+ANT_BUILD_TARGETS="compile"
+ANT_INSTALL_JARS="target/*-${PV}*.jar"
