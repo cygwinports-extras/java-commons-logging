@@ -1,4 +1,3 @@
-JAVA_CLASSPATH="servlet-api.jar"
 inherit ant
 
 DESCRIPTION="Bridge for several Java logging APIs"
@@ -7,8 +6,11 @@ SRC_URI="mirror://apache/${ORIG_PN//-//}/source/${ORIG_PN}-${PV}-src.tar.gz"
 SRC_DIR="${ORIG_PN}-${PV}-src"
 
 ANT_BUILD_ARGS="
+	-Davalon-framework.jar=${JAVA_DIR}/avalon-framework.jar
 	-Dlog4j12.jar=${JAVA_DIR}/log4j.jar
+	-Dlogkit.jar=${JAVA_DIR}/avalon-logkit.jar
 	-Djunit.jar=${JAVA_DIR}/junit.jar
+	-Dservletapi.jar=${JAVA_DIR}/servlet-api.jar
 "
 ANT_BUILD_TARGETS="compile"
 ANT_INSTALL_JARS="target/*-${PV}*.jar"
